@@ -20,6 +20,6 @@ public class Enemy : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        navMesh.destination = player.transform.position; 
+        navMesh.destination = player.transform.position;
     }
 }
