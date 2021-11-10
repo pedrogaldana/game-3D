@@ -26,6 +26,7 @@ public class Enemy : MonoBehaviour
         if (vida <= 0)
         {
             enemyAnimator.SetTrigger("Death");
+            navMesh.isStopped = true;
         }
         else
         {
@@ -36,7 +37,7 @@ public class Enemy : MonoBehaviour
             else
             {
                 navMesh.destination = player.transform.position;
-                if (Vector3.Distance(transform.position, player.transform.position) < 1.5f)
+                if (Vector3.Distance(transform.position, player.transform.position) < 3f)
                 {
                     Atacar();
                     navMesh.isStopped = true;

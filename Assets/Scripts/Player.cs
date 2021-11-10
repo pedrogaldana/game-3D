@@ -29,15 +29,32 @@ public class Player : MonoBehaviour
             playerAnimator.SetTrigger("Punching");
             if (Vector3.Distance(transform.position, enemy.transform.position) < 1.5f)
             {
-                enemy.GetComponent<Enemy>().vida -= 50;
+                Atacar();
             }
-            else
+        }       
+
+        if (Input.GetKeyDown(KeyCode.E))
+        {
+            playerAnimator.SetTrigger("FlyingKick");
+            if (Vector3.Distance(transform.position, enemy.transform.position) < 3f)
             {
-                
-            }
+                Atacar();
+            }           
+        }
+
+
+        if (Input.GetKeyDown(KeyCode.F))
+        {
+            playerAnimator.SetTrigger("DanceFlair");
         }
 
     }
+
+    void Atacar()
+    {
+        enemy.GetComponent<Enemy>().vida -= 50;
+    }
+
 
     //private void OnCollisionEnter(Collision collision)
     //{
